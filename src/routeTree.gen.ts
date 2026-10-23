@@ -10,20 +10,34 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CanvassingRouteImport } from './routes/canvassing'
 import { Route as EventsRouteImport } from './routes/events'
+import { Route as GrievancesRouteImport } from './routes/grievances'
 import { Route as MembersRouteImport } from './routes/members'
 import { Route as OrganizationRouteImport } from './routes/organization'
+import { Route as OutreachRouteImport } from './routes/outreach'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as TasksRouteImport } from './routes/tasks'
+import { Route as WarRoomRouteImport } from './routes/war-room'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CanvassingRoute = CanvassingRouteImport.update({
+  id: '/canvassing',
+  path: '/canvassing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EventsRoute = EventsRouteImport.update({
   id: '/events',
   path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GrievancesRoute = GrievancesRouteImport.update({
+  id: '/grievances',
+  path: '/grievances',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MembersRoute = MembersRouteImport.update({
@@ -36,6 +50,11 @@ const OrganizationRoute = OrganizationRouteImport.update({
   path: '/organization',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OutreachRoute = OutreachRouteImport.update({
+  id: '/outreach',
+  path: '/outreach',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportsRoute = ReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
@@ -46,55 +65,99 @@ const TasksRoute = TasksRouteImport.update({
   path: '/tasks',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WarRoomRoute = WarRoomRouteImport.update({
+  id: '/war-room',
+  path: '/war-room',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/canvassing': typeof CanvassingRoute
   '/events': typeof EventsRoute
+  '/grievances': typeof GrievancesRoute
   '/members': typeof MembersRoute
   '/organization': typeof OrganizationRoute
+  '/outreach': typeof OutreachRoute
   '/reports': typeof ReportsRoute
   '/tasks': typeof TasksRoute
+  '/war-room': typeof WarRoomRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/canvassing': typeof CanvassingRoute
   '/events': typeof EventsRoute
+  '/grievances': typeof GrievancesRoute
   '/members': typeof MembersRoute
   '/organization': typeof OrganizationRoute
+  '/outreach': typeof OutreachRoute
   '/reports': typeof ReportsRoute
   '/tasks': typeof TasksRoute
+  '/war-room': typeof WarRoomRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/canvassing': typeof CanvassingRoute
   '/events': typeof EventsRoute
+  '/grievances': typeof GrievancesRoute
   '/members': typeof MembersRoute
   '/organization': typeof OrganizationRoute
+  '/outreach': typeof OutreachRoute
   '/reports': typeof ReportsRoute
   '/tasks': typeof TasksRoute
+  '/war-room': typeof WarRoomRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/events' | '/members' | '/organization' | '/reports' | '/tasks'
+    | '/'
+    | '/canvassing'
+    | '/events'
+    | '/grievances'
+    | '/members'
+    | '/organization'
+    | '/outreach'
+    | '/reports'
+    | '/tasks'
+    | '/war-room'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/events' | '/members' | '/organization' | '/reports' | '/tasks'
+  to:
+    | '/'
+    | '/canvassing'
+    | '/events'
+    | '/grievances'
+    | '/members'
+    | '/organization'
+    | '/outreach'
+    | '/reports'
+    | '/tasks'
+    | '/war-room'
   id:
     | '__root__'
     | '/'
+    | '/canvassing'
     | '/events'
+    | '/grievances'
     | '/members'
     | '/organization'
+    | '/outreach'
     | '/reports'
     | '/tasks'
+    | '/war-room'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CanvassingRoute: typeof CanvassingRoute
   EventsRoute: typeof EventsRoute
+  GrievancesRoute: typeof GrievancesRoute
   MembersRoute: typeof MembersRoute
   OrganizationRoute: typeof OrganizationRoute
+  OutreachRoute: typeof OutreachRoute
   ReportsRoute: typeof ReportsRoute
   TasksRoute: typeof TasksRoute
+  WarRoomRoute: typeof WarRoomRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -106,11 +169,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/canvassing': {
+      id: '/canvassing'
+      path: '/canvassing'
+      fullPath: '/canvassing'
+      preLoaderRoute: typeof CanvassingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/events': {
       id: '/events'
       path: '/events'
       fullPath: '/events'
       preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/grievances': {
+      id: '/grievances'
+      path: '/grievances'
+      fullPath: '/grievances'
+      preLoaderRoute: typeof GrievancesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/members': {
@@ -127,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OrganizationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/outreach': {
+      id: '/outreach'
+      path: '/outreach'
+      fullPath: '/outreach'
+      preLoaderRoute: typeof OutreachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reports': {
       id: '/reports'
       path: '/reports'
@@ -141,16 +225,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TasksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/war-room': {
+      id: '/war-room'
+      path: '/war-room'
+      fullPath: '/war-room'
+      preLoaderRoute: typeof WarRoomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CanvassingRoute: CanvassingRoute,
   EventsRoute: EventsRoute,
+  GrievancesRoute: GrievancesRoute,
   MembersRoute: MembersRoute,
   OrganizationRoute: OrganizationRoute,
+  OutreachRoute: OutreachRoute,
   ReportsRoute: ReportsRoute,
   TasksRoute: TasksRoute,
+  WarRoomRoute: WarRoomRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
