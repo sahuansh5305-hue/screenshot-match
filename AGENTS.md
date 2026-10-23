@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Use shared native SVG/HTML chart components derived from existing data for district analytics; avoid adding charting dependencies to keep the experience lightweight.
+- Render organizational relationships as an accessible expandable district/block/member tree; do not fabricate missing mandal or booth appointments.
