@@ -2,12 +2,12 @@ import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
 const nav = [
-  { to: "/", label: "Dashboard" },
-  { to: "/organization", label: "Organisation" },
-  { to: "/members", label: "Members" },
-  { to: "/tasks", label: "Tasks" },
-  { to: "/events", label: "Events" },
-  { to: "/reports", label: "Reports" },
+  { to: "/", label: "मुख्य पटल" },
+  { to: "/organization", label: "संगठन" },
+  { to: "/members", label: "सदस्य" },
+  { to: "/tasks", label: "कार्य" },
+  { to: "/events", label: "आयोजन" },
+  { to: "/reports", label: "प्रतिवेदन" },
 ] as const;
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -15,8 +15,8 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen flex-col md:flex-row">
       <aside className="bg-sidebar text-sidebar-foreground md:w-64 md:min-h-screen shrink-0 border-r border-sidebar-border">
         <div className="p-5 border-b border-sidebar-border">
-          <div className="font-serif text-lg leading-tight">Congress Jnata Party</div>
-          <div className="text-xs uppercase tracking-[0.2em] opacity-70 mt-1">Sagar District</div>
+          <div className="font-serif text-lg leading-tight">कांग्रेस जनता पार्टी</div>
+          <div className="text-xs uppercase tracking-[0.2em] opacity-70 mt-1">सागर जिला</div>
         </div>
         <div className="tricolor-rule" />
         <nav className="flex md:flex-col overflow-x-auto p-2 gap-1">
@@ -28,7 +28,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </Link>
           ))}
         </nav>
-        <div className="hidden md:block p-5 text-xs opacity-60 mt-auto">Signed in as District Admin (demo)</div>
+        <div className="hidden md:block p-5 text-xs opacity-60 mt-auto">जिला प्रशासक के रूप में प्रवेश किया है (नमूना)</div>
       </aside>
       <main className="flex-1 min-w-0">{children}</main>
     </div>
