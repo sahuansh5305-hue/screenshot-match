@@ -3,6 +3,10 @@ import type { ReactNode } from "react";
 
 const nav = [
   { to: "/", label: "मुख्य पटल" },
+  { to: "/war-room", label: "वॉर रूम" },
+  { to: "/canvassing", label: "जनसंपर्क" },
+  { to: "/grievances", label: "जन समस्या" },
+  { to: "/outreach", label: "सदस्यता व संदेश" },
   { to: "/organization", label: "संगठन" },
   { to: "/members", label: "सदस्य" },
   { to: "/tasks", label: "कार्य" },
