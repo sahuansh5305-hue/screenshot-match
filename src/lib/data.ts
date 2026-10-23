@@ -13,10 +13,10 @@ const statuses: Member["status"][] = ["Active", "Active", "Active", "Pending", "
 export const members: Member[] = Array.from({ length: 32 }, (_, i) => ({
   id: `CJP-SGR-${String(1001 + i)}`,
   name: `${first[i % 16]} ${last[(i * 3) % 8]}`,
-  designation: desig[i % 8],
-  unit: blocks[i % 8],
+  designation: desig[i % 8]!,
+  unit: blocks[i % 8]!,
   phone: `+91 9${String(800000000 + i * 7919).slice(0, 9)}`,
-  status: statuses[i % 5],
+  status: statuses[i % 5]!,
   joined: `20${19 + (i % 7)}-0${1 + (i % 9)}-1${i % 9}`,
 }));
 
