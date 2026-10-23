@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { BlockChart, TaskChart } from "@/components/DataCharts";
 import { PageHeader, Badge } from "@/components/AppShell";
 import { formatDate, activity, events, members, tasks, blockStats } from "@/lib/data";
 
@@ -36,6 +37,10 @@ function Dashboard() {
               <div className="font-serif text-3xl text-primary mt-2">{s.value}</div>
             </Link>
           ))}
+        </div>
+        <div className="grid xl:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-6">
+          <BlockChart />
+          <TaskChart />
         </div>
         <div className="grid lg:grid-cols-3 gap-6">
           <section className="panel lg:col-span-2">

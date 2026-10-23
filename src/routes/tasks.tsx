@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { TaskChart } from "@/components/DataCharts";
 import { PageHeader, Badge, btn } from "@/components/AppShell";
 import { formatDate, tasks } from "@/lib/data";
 
@@ -22,6 +23,7 @@ function Tasks() {
   return (
     <>
       <PageHeader title="कार्य और जिम्मेदारियाँ" subtitle="ब्लॉकवार कार्य की स्थिति" action={<button className={btn} onClick={() => alert("यह नमूना है: कार्य सौंपने का प्रपत्र अभी उपलब्ध नहीं है।")}>+ कार्य सौंपें</button>} />
+      <div className="px-6 pt-6"><TaskChart /></div>
       <div className="p-6 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
         {cols.map((c) => (
           <section key={c} className="bg-muted rounded-sm p-3">
