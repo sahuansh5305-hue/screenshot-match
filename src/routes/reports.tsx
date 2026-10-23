@@ -5,10 +5,12 @@ import { blockStats } from "@/lib/data";
 export const Route = createFileRoute("/reports")({
   head: () => ({
     meta: [
-      { title: "Reports – CJP Sagar" },
-      { name: "description", content: "Block-wise coverage and membership reports." },
-      { property: "og:title", content: "Reports – CJP Sagar" },
-      { property: "og:description", content: "Block-wise coverage and membership reports." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { title: "प्रतिवेदन – कांग्रेस जनता पार्टी सागर" },
+      { name: "description", content: "ब्लॉकवार बूथ कवरेज और सदस्यता प्रतिवेदन।" },
+      { property: "og:title", content: "प्रतिवेदन – कांग्रेस जनता पार्टी सागर" },
+      { property: "og:description", content: "ब्लॉकवार बूथ कवरेज और सदस्यता प्रतिवेदन।" },
     ],
   }),
   component: Reports,
@@ -18,10 +20,10 @@ function Reports() {
   const max = Math.max(...blockStats.map((b) => b.members));
   return (
     <>
-      <PageHeader title="Reports" subtitle="Block-wise performance, Sagar District" action={<button className={btn} onClick={() => alert("Prototype: export to Excel")}>Export</button>} />
+      <PageHeader title="प्रतिवेदन" subtitle="ब्लॉकवार प्रदर्शन, सागर जिला" action={<button className={btn} onClick={() => alert("यह नमूना है: प्रतिवेदन डाउनलोड करना अभी उपलब्ध नहीं है।")}>डाउनलोड करें</button>} />
       <div className="p-6 grid lg:grid-cols-2 gap-6">
         <section className="panel p-5">
-          <h2 className="text-base mb-4">Members by block</h2>
+          <h2 className="text-base mb-4">ब्लॉकवार सदस्य</h2>
           <div className="space-y-2.5">
             {blockStats.map((b) => (
               <div key={b.block} className="flex items-center gap-3 text-sm">
@@ -35,7 +37,7 @@ function Reports() {
         <section className="panel overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-muted text-left text-xs uppercase tracking-wider text-muted-foreground">
-              <tr><th className="px-4 py-2.5">Block</th><th className="px-4 py-2.5">Booths</th><th className="px-4 py-2.5">Covered</th><th className="px-4 py-2.5">Coverage</th></tr>
+              <tr><th className="px-4 py-2.5">ब्लॉक</th><th className="px-4 py-2.5">बूथ</th><th className="px-4 py-2.5">कवर किए गए</th><th className="px-4 py-2.5">कवरेज</th></tr>
             </thead>
             <tbody className="divide-y">
               {blockStats.map((b) => (

@@ -1,25 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Badge, btn } from "@/components/AppShell";
-import { tasks } from "@/lib/data";
+import { formatDate, tasks } from "@/lib/data";
 
 export const Route = createFileRoute("/tasks")({
   head: () => ({
     meta: [
-      { title: "Tasks – CJP Sagar" },
-      { name: "description", content: "Assignments and follow-ups across district units." },
-      { property: "og:title", content: "Tasks – CJP Sagar" },
-      { property: "og:description", content: "Assignments and follow-ups across district units." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { title: "कार्य – कांग्रेस जनता पार्टी सागर" },
+      { name: "description", content: "जिले की इकाइयों के कार्य आवंटन और अनुवर्ती कार्य।" },
+      { property: "og:title", content: "कार्य – कांग्रेस जनता पार्टी सागर" },
+      { property: "og:description", content: "जिले की इकाइयों के कार्य आवंटन और अनुवर्ती कार्य।" },
     ],
   }),
   component: Tasks,
 });
 
-const cols = ["To do", "In progress", "Overdue", "Done"];
+const cols = ["करना है", "प्रगति में", "समय सीमा पार", "पूर्ण"];
 
 function Tasks() {
   return (
     <>
-      <PageHeader title="Tasks & Assignments" subtitle="Track work across blocks" action={<button className={btn} onClick={() => alert("Prototype: assign task form")}>+ Assign task</button>} />
+      <PageHeader title="कार्य और जिम्मेदारियाँ" subtitle="ब्लॉकवार कार्य की स्थिति" action={<button className={btn} onClick={() => alert("यह नमूना है: कार्य सौंपने का प्रपत्र अभी उपलब्ध नहीं है।")}>+ कार्य सौंपें</button>} />
       <div className="p-6 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
         {cols.map((c) => (
           <section key={c} className="bg-muted rounded-sm p-3">
@@ -30,8 +32,8 @@ function Tasks() {
                   <div className="font-medium">{t.title}</div>
                   <div className="text-xs text-muted-foreground mt-1">{t.unit} · {t.owner}</div>
                   <div className="flex justify-between items-center mt-2">
-                    <Badge tone={t.priority === "High" ? "destructive" : t.priority === "Medium" ? "warning" : "muted"}>{t.priority}</Badge>
-                    <span className="text-xs text-muted-foreground">Due {t.due}</span>
+                    <Badge tone={t.priority === "उच्च" ? "destructive" : t.priority === "मध्यम" ? "warning" : "muted"}>{t.priority}</Badge>
+                    <span className="text-xs text-muted-foreground">अंतिम तिथि {formatDate(t.due)}</span>
                   </div>
                 </div>
               ))}
