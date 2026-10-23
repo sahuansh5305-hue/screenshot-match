@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { BlockChart } from "@/components/DataCharts";
 import { PageHeader, btn } from "@/components/AppShell";
 import { blockStats } from "@/lib/data";
 
@@ -17,23 +18,11 @@ export const Route = createFileRoute("/reports")({
 });
 
 function Reports() {
-  const max = Math.max(...blockStats.map((b) => b.members));
   return (
     <>
       <PageHeader title="प्रतिवेदन" subtitle="ब्लॉकवार प्रदर्शन, सागर जिला" action={<button className={btn} onClick={() => alert("यह नमूना है: प्रतिवेदन डाउनलोड करना अभी उपलब्ध नहीं है।")}>डाउनलोड करें</button>} />
       <div className="p-6 grid lg:grid-cols-2 gap-6">
-        <section className="panel p-5">
-          <h2 className="text-base mb-4">ब्लॉकवार सदस्य</h2>
-          <div className="space-y-2.5">
-            {blockStats.map((b) => (
-              <div key={b.block} className="flex items-center gap-3 text-sm">
-                <span className="w-20">{b.block}</span>
-                <div className="flex-1 h-5 bg-muted rounded-sm"><div className="h-full bg-primary rounded-sm" style={{ width: `${(b.members / max) * 100}%` }} /></div>
-                <span className="w-14 text-right tabular-nums">{b.members.toLocaleString("en-IN")}</span>
-              </div>
-            ))}
-          </div>
-        </section>
+        <BlockChart />
         <section className="panel overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-muted text-left text-xs uppercase tracking-wider text-muted-foreground">
