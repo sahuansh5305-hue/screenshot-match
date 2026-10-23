@@ -8,9 +8,9 @@ export const Route = createFileRoute("/tasks")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "कार्य – कांग्रेस जनता पार्टी सागर" },
+      { title: "कार्य – संगठन सेतु" },
       { name: "description", content: "जिले की इकाइयों के कार्य आवंटन और अनुवर्ती कार्य।" },
-      { property: "og:title", content: "कार्य – कांग्रेस जनता पार्टी सागर" },
+      { property: "og:title", content: "कार्य – संगठन सेतु" },
       { property: "og:description", content: "जिले की इकाइयों के कार्य आवंटन और अनुवर्ती कार्य।" },
     ],
   }),

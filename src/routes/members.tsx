@@ -8,9 +8,9 @@ export const Route = createFileRoute("/members")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "सदस्य – कांग्रेस जनता पार्टी सागर" },
+      { title: "सदस्य – संगठन सेतु" },
       { name: "description", content: "पार्टी सदस्यों और पदाधिकारियों की खोज योग्य सूची।" },
-      { property: "og:title", content: "सदस्य – कांग्रेस जनता पार्टी सागर" },
+      { property: "og:title", content: "सदस्य – संगठन सेतु" },
       { property: "og:description", content: "पार्टी सदस्यों और पदाधिकारियों की खोज योग्य सूची।" },
     ],
   }),

@@ -79,8 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "कांग्रेस जनता पार्टी सागर – संगठन प्रबंधन" },
-      { name: "description", content: "कांग्रेस जनता पार्टी, सागर का संगठन प्रबंधन।" },
+      { title: "संगठन सेतु – संगठन प्रबंधन" },
+      { name: "description", content: "संगठन सेतु"},
+
+// and add india map in dashborad , user can zoom it and also see their distic and booth active memebers all things, i mean make this website more attractive professinal and political, सागर का संगठन प्रबंधन।" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

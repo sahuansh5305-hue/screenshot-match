@@ -7,9 +7,9 @@ export const Route = createFileRoute("/events")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "आयोजन – कांग्रेस जनता पार्टी सागर" },
+      { title: "आयोजन – संगठन सेतु" },
       { name: "description", content: "आगामी बैठकों, रैलियों और उपस्थिति का विवरण।" },
-      { property: "og:title", content: "आयोजन – कांग्रेस जनता पार्टी सागर" },
+      { property: "og:title", content: "आयोजन – संगठन सेतु" },
       { property: "og:description", content: "आगामी बैठकों, रैलियों और उपस्थिति का विवरण।" },
     ],
   }),

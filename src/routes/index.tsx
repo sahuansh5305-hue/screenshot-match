@@ -8,9 +8,9 @@ export const Route = createFileRoute("/")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "मुख्य पटल – कांग्रेस जनता पार्टी सागर" },
+      { title: "मुख्य पटल – संगठन सेतु" },
       { name: "description", content: "जिले के सदस्यों, कार्यों, आयोजनों और बूथ कवरेज का अवलोकन।" },
-      { property: "og:title", content: "मुख्य पटल – कांग्रेस जनता पार्टी सागर" },
+      { property: "og:title", content: "मुख्य पटल – संगठन सेतु" },
       { property: "og:description", content: "जिले के सदस्यों, कार्यों, आयोजनों और बूथ कवरेज का अवलोकन।" },
     ],
   }),

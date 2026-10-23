@@ -19,7 +19,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen flex-col md:flex-row">
       <aside className="bg-sidebar text-sidebar-foreground md:w-64 md:min-h-screen shrink-0 border-r border-sidebar-border">
         <div className="p-5 border-b border-sidebar-border">
-          <div className="font-serif text-lg leading-tight">कांग्रेस जनता पार्टी</div>
+          <div className="font-serif text-lg leading-tight">संगठन सेतु</div>
           <div className="text-xs uppercase tracking-[0.2em] opacity-70 mt-1">सागर जिला</div>
         </div>
         <div className="tricolor-rule" />

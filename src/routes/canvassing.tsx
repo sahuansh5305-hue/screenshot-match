@@ -8,9 +8,9 @@ export const Route = createFileRoute("/canvassing")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "जनसंपर्क – कांग्रेस जनता पार्टी सागर" },
+      { title: "जनसंपर्क – संगठन सेतु" },
       { name: "description", content: "घर-घर संपर्क दर्ज करें, जनता के मुद्दे और जनमत समझें।" },
-      { property: "og:title", content: "जनसंपर्क – कांग्रेस जनता पार्टी सागर" },
+      { property: "og:title", content: "जनसंपर्क – संगठन सेतु" },
       { property: "og:description", content: "घर-घर संपर्क दर्ज करें, जनता के मुद्दे और जनमत समझें।" },
     ],
   }),
