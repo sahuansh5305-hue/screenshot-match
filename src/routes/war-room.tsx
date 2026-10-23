@@ -33,7 +33,7 @@ function WarRoom() {
   }, [live]);
 
   const list = useMemo(() => booths.filter((b) => !block || b.block === block), [block]);
-  const counts = { "मजबूत": 0, "कांटे की टक्कर": 0, "कमजोर": 0 } as Record<string, number>;
+  const counts: Record<"मजबूत" | "कांटे की टक्कर" | "कमजोर", number> = { "मजबूत": 0, "कांटे की टक्कर": 0, "कमजोर": 0 };
   list.forEach((b) => { counts[boothLean(b)]! += 1; });
   const voters = list.reduce((a, b) => a + b.voters, 0);
   const turnoutOf = (b: Booth) => Math.min(95, b.turnout + extra);
