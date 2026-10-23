@@ -34,7 +34,7 @@ function WarRoom() {
 
   const list = useMemo(() => booths.filter((b) => !block || b.block === block), [block]);
   const counts: Record<"मजबूत" | "कांटे की टक्कर" | "कमजोर", number> = { "मजबूत": 0, "कांटे की टक्कर": 0, "कमजोर": 0 };
-  list.forEach((b) => { counts[boothLean(b)]! += 1; });
+  list.forEach((b) => { counts[boothLean(b)] += 1; });
   const voters = list.reduce((a, b) => a + b.voters, 0);
   const turnoutOf = (b: Booth) => Math.min(95, b.turnout + extra);
   const voted = list.reduce((a, b) => a + Math.round((b.voters * turnoutOf(b)) / 100), 0);
@@ -58,7 +58,7 @@ function WarRoom() {
             <div className="px-5 py-3 border-b flex flex-wrap justify-between items-center gap-3">
               <h2 className="text-base">बूथ मानचित्र ({list.length} बूथ)</h2>
               <div className="flex items-center gap-3 text-xs">
-                {Object.entries(tone).map(([k, c]) => <span key={k} className="flex items-center gap-1"><span className={`w-3 h-3 rounded-sm ${c}`} />{k} ({counts[k]})</span>)}
+                {Object.entries(tone).map(([k, c]) => <span key={k} className="flex items-center gap-1"><span className={`w-3 h-3 rounded-sm ${c}`} />{k} ({counts[k as keyof typeof counts]})</span>)}
                 <select className="border bg-card px-2 py-1 rounded-sm" value={block} onChange={(e) => { setBlock(e.target.value); setSel(null); }}>
                   <option value="">सभी ब्लॉक</option>
                   {blocks.map((b) => <option key={b}>{b}</option>)}
