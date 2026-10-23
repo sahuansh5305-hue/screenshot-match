@@ -66,7 +66,7 @@ export function TaskChart() {
             const count = tasks.filter((t) => t.status === s.name).length;
             const arc = count / total * 100;
             const start = offset; offset += arc;
-            return <circle key={s.name} cx="60" cy="60" r="46" fill="none" stroke={s.color} strokeWidth="12" pathLength="100" strokeDasharray={`${Math.max(0, arc - 1)} ${101 - arc}`} strokeDashoffset={-start}><title>{s.name}: {count}</title></circle>;
+            return <circle key={s.name} cx="60" cy="60" r="46" fill="none" stroke={s.color} strokeWidth="12" pathLength="100" strokeDasharray={`${Math.max(0, arc - 1)} ${101 - arc}`} strokeDashoffset={-start}><title>{`${s.name}: ${count}`}</title></circle>;
           })}
         </svg>
         <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none"><span className="font-serif text-3xl">{Math.round(completed / total * 100)}%</span><span className="text-xs text-muted-foreground">पूर्ण कार्य</span></div>
