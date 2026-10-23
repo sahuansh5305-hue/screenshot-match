@@ -33,7 +33,7 @@ export const tasks = [
 export const events = [
   { id: 1, title: "जिला कार्यकर्ता सम्मेलन", date: "2026-10-27", place: "सागर, नगर सभागार", expected: 850, rsvp: 612 },
   { id: 2, title: "महिला मोर्चा संवाद", date: "2026-10-31", place: "बीना सामुदायिक केंद्र", expected: 300, rsvp: 214 },
-  { id: 3, title: "ब्लॉक अध्यक्षs Review", date: "2026-11-03", place: "जिला कार्यालय, सागर", expected: 12, rsvp: 11 },
+  { id: 3, title: "ब्लॉक अध्यक्षों की समीक्षा बैठक", date: "2026-11-03", place: "जिला कार्यालय, सागर", expected: 12, rsvp: 11 },
   { id: 4, title: "युवा रैली – खुरई", date: "2026-11-09", place: "खुरई खेल मैदान", expected: 1200, rsvp: 540 },
 ];
 

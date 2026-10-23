@@ -27,7 +27,7 @@ function Dashboard() {
   ] as const;
   return (
     <>
-      <PageHeader title="जिला मुख्य पटल" subtitle="सागर जिला · All 8 blocks · Week में से 19 Oct 2026" />
+      <PageHeader title="जिला मुख्य पटल" subtitle="सागर जिला · सभी 8 ब्लॉक · 19 अक्टूबर 2026 का सप्ताह" />
       <div className="p-6 space-y-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((s) => (
