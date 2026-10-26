@@ -80,9 +80,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "संगठन सेतु – संगठन प्रबंधन" },
-      { name: "description", content: "संगठन सेतु"},
+      { name: "description", content: "संगठन सेतु – सागर जिला संगठन प्रबंधन, चुनावी वॉर रूम एवं बूथ स्तर विश्लेषण।" },
 
-// and add india map in dashborad , user can zoom it and also see their distic and booth active memebers all things, i mean make this website more attractive professinal and political, सागर का संगठन प्रबंधन।" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
