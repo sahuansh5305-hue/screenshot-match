@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { ZoomIn, ZoomOut, RotateCcw, Search, Activity, ShieldCheck, Flame, AlertTriangle, Layers, MapPin, Users, Phone } from "lucide-react";
+import { ZoomIn, ZoomOut, RotateCcw, Search, ShieldCheck, Flame, AlertTriangle, Layers, MapPin, Users, Phone } from "lucide-react";
 import { booths, boothLean, type Booth } from "@/lib/campaign";
 import { sagarConstituencies } from "@/lib/sagarConstituencies";
 
@@ -24,7 +24,6 @@ export function SagarPollMap() {
   const [sentimentFilter, setSentimentFilter] = useState<"सभी" | "मजबूत" | "कांटे की टक्कर" | "कमजोर">("सभी");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBooth, setSelectedBooth] = useState<Booth | null>(null);
-  const [liveMode, setLiveMode] = useState(false);
   const [zoom, setZoom] = useState(8);
 
   useEffect(() => {
@@ -101,9 +100,8 @@ export function SagarPollMap() {
 
   return <div className="panel p-5 bg-card border border-border rounded-xl shadow-xs space-y-4">
     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-border pb-4">
-      <div><div className="flex items-center gap-2"><span className={`inline-block w-2.5 h-2.5 rounded-full ${liveMode ? "bg-red-500 animate-ping" : "bg-emerald-500"}`} /><h3 className="font-serif text-xl font-bold text-foreground">सागर जिला · विधानसभा मानचित्र</h3>{liveMode && <span className="bg-red-100 text-red-700 text-[10px] font-bold px-2 py-0.5 rounded-full">डेमो</span>}</div>
-      <p className="text-xs text-muted-foreground mt-1">सागर जिले की 8 विधानसभा सीमाएँ · ज़ूम करें और क्षेत्र चुनें · बूथ स्थान डेमो हैं</p></div>
-      <button onClick={() => setLiveMode((v) => !v)} className="px-3 py-1.5 rounded-lg text-xs font-semibold border flex items-center gap-1.5"><Activity className="w-3.5 h-3.5" />{liveMode ? "डेमो बंद" : "लाइव मतदान डेमो"}</button>
+      <div><div className="flex items-center gap-2"><span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500" /><h3 className="font-serif text-xl font-bold text-foreground">सागर जिला · विधानसभा मानचित्र</h3></div>
+      <p className="text-xs text-muted-foreground mt-1">सागर जिले की 8 विधानसभा सीमाएँ · ज़ूम करें और क्षेत्र चुनें</p></div>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center"><div className="md:col-span-6 flex flex-wrap items-center gap-1.5 text-xs"><span className="text-muted-foreground text-[11px]">विधानसभा:</span><button onClick={() => setActiveBlock("सभी")} className={`px-2.5 py-1 rounded-md border ${activeBlock === "सभी" ? "bg-primary text-primary-foreground" : "bg-background"}`}>सभी (8)</button>{sagarConstituencies.features.map((f) => <button key={f.properties.ac_no} onClick={() => { setActiveBlock(f.properties.name_hi); const layer = boundaryLayer.current?.getLayers().find((l) => (l as L.GeoJSON).feature && ((l as L.GeoJSON).feature!.properties as ConstituencyFeature["properties"]).ac_no === f.properties.ac_no); if (layer && mapRef.current) mapRef.current.fitBounds((layer as L.Polygon).getBounds(), { padding: [36, 36], maxZoom: 10 }); }} className={`px-2.5 py-1 rounded-md border ${activeBlock === f.properties.name_hi ? "bg-primary text-primary-foreground" : "bg-background"}`}>{f.properties.name_hi}</button>)}</div>
       <div className="md:col-span-3 flex items-center gap-1 text-xs"><span className="text-muted-foreground text-[11px]">रुझान:</span>{(["सभी", "मजबूत", "कांटे की टक्कर", "कमजोर"] as const).map((s) => <button key={s} onClick={() => setSentimentFilter(s)} className={`px-2 py-0.5 rounded border text-[10px] ${sentimentFilter === s ? "bg-foreground text-background" : "bg-background text-muted-foreground"}`}>{s}</button>)}</div>
