@@ -91,3 +91,5 @@
 /* Leaflet map labels for the Sagar overview */
 .sagar-map-label { background: rgba(255,255,255,.9); border: 0; border-radius: 6px; box-shadow: 0 1px 5px rgba(15,23,42,.2); color: #172033; font-weight: 700; padding: 3px 7px; white-space: nowrap; }
 .sagar-map-label::before { display: none; }
+.sagar-constituency-label { background: transparent; border: 0; white-space: nowrap; pointer-events: none; }
+.sagar-constituency-label span { display: inline-block; transform: translate(-50%, -50%); color: #263a32; background: rgba(255,255,255,.86); border: 1px solid rgba(83,105,95,.35); border-radius: 999px; padding: 3px 7px; font-size: 10px; font-weight: 700; box-shadow: 0 1px 3px rgba(20,35,28,.12); }
