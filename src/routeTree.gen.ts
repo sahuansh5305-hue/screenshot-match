@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BroadcastRouteImport } from './routes/broadcast'
 import { Route as CanvassingRouteImport } from './routes/canvassing'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as GrievancesRouteImport } from './routes/grievances'
@@ -23,6 +24,11 @@ import { Route as WarRoomRouteImport } from './routes/war-room'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BroadcastRoute = BroadcastRouteImport.update({
+  id: '/broadcast',
+  path: '/broadcast',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CanvassingRoute = CanvassingRouteImport.update({
@@ -73,6 +79,7 @@ const WarRoomRoute = WarRoomRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/broadcast': typeof BroadcastRoute
   '/canvassing': typeof CanvassingRoute
   '/events': typeof EventsRoute
   '/grievances': typeof GrievancesRoute
@@ -85,6 +92,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/broadcast': typeof BroadcastRoute
   '/canvassing': typeof CanvassingRoute
   '/events': typeof EventsRoute
   '/grievances': typeof GrievancesRoute
@@ -98,6 +106,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/broadcast': typeof BroadcastRoute
   '/canvassing': typeof CanvassingRoute
   '/events': typeof EventsRoute
   '/grievances': typeof GrievancesRoute
@@ -112,6 +121,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/broadcast'
     | '/canvassing'
     | '/events'
     | '/grievances'
@@ -124,6 +134,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/broadcast'
     | '/canvassing'
     | '/events'
     | '/grievances'
@@ -136,6 +147,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/broadcast'
     | '/canvassing'
     | '/events'
     | '/grievances'
@@ -149,6 +161,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BroadcastRoute: typeof BroadcastRoute
   CanvassingRoute: typeof CanvassingRoute
   EventsRoute: typeof EventsRoute
   GrievancesRoute: typeof GrievancesRoute
@@ -167,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/broadcast': {
+      id: '/broadcast'
+      path: '/broadcast'
+      fullPath: '/broadcast'
+      preLoaderRoute: typeof BroadcastRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/canvassing': {
@@ -237,6 +257,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BroadcastRoute: BroadcastRoute,
   CanvassingRoute: CanvassingRoute,
   EventsRoute: EventsRoute,
   GrievancesRoute: GrievancesRoute,

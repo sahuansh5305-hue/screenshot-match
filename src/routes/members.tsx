@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHeader, Badge, btn } from "@/components/AppShell";
 import { blocks, members as initialMembers, type Member } from "@/lib/data";
+import { RegisterMemberModal, type RegisterMemberData } from "@/components/RegisterMemberModal";
 
 export const Route = createFileRoute("/members")({
   head: () => ({
@@ -36,13 +37,6 @@ function Members() {
   const [notification, setNotification] = useState<string | null>(null);
 
   // Form state
-  const [formData, setFormData] = useState({
-    name: "",
-    designation: "कार्यकर्ता",
-    unit: "सागर",
-    phone: "",
-    status: "सक्रिय" as Member["status"],
-  });
 
   const list = memberList.filter(
     (m) =>
@@ -52,30 +46,9 @@ function Members() {
 
   const inputClass = "border bg-card px-3 py-2 text-sm rounded-sm w-full";
 
-  const handleAddMember = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name.trim()) return;
-
-    const newId = `कजपा-सागर-${1000 + memberList.length + 1}`;
-    const newMember: Member = {
-      id: newId,
-      name: formData.name.trim(),
-      designation: formData.designation,
-      unit: formData.unit,
-      phone: formData.phone.trim() || "+91 9800000000",
-      status: formData.status,
-      joined: new Date().toISOString().split("T")[0]!,
-    };
-
-    setMemberList([newMember, ...memberList]);
+  const handleAddMember = (_formData: RegisterMemberData, newMember: Member) => {
+    setMemberList((current) => [newMember, ...current]);
     setIsModalOpen(false);
-    setFormData({
-      name: "",
-      designation: "कार्यकर्ता",
-      unit: "सागर",
-      phone: "",
-      status: "सक्रिय",
-    });
     setNotification(`सदस्य "${newMember.name}" (${newMember.id}) सफलतापूर्वक जोड़ा गया!`);
     setTimeout(() => setNotification(null), 4000);
   };
@@ -163,110 +136,11 @@ function Members() {
         </div>
       </div>
 
-      {/* Member Form Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-card border shadow-xl rounded-lg max-w-md w-full p-6 space-y-4">
-            <div className="flex justify-between items-center border-b pb-3">
-              <div>
-                <h3 className="font-serif text-lg font-bold">नया सदस्य जोड़ें</h3>
-                <p className="text-xs text-muted-foreground">संगठन में नए कार्यकर्ता या पदाधिकारी का विवरण दर्ज करें</p>
-              </div>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="text-muted-foreground hover:text-foreground text-lg px-2"
-              >
-                ✕
-              </button>
-            </div>
-
-            <form onSubmit={handleAddMember} className="space-y-3.5">
-              <div>
-                <label className="block text-xs font-medium mb-1">पूरा नाम *</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="उदा. रमेश कुमार साहू"
-                  className={inputClass}
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-medium mb-1">पद / दायित्व</label>
-                  <select
-                    className={inputClass}
-                    value={formData.designation}
-                    onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
-                  >
-                    {designations.map((d) => (
-                      <option key={d} value={d}>
-                        {d}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-medium mb-1">ब्लॉक / विधानसभा</label>
-                  <select
-                    className={inputClass}
-                    value={formData.unit}
-                    onChange={(e) => setFormData({ ...formData, unit: e.target.value })}
-                  >
-                    {blocks.map((b) => (
-                      <option key={b} value={b}>
-                        {b}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium mb-1">मोबाइल नंबर</label>
-                <input
-                  type="tel"
-                  placeholder="+91 98XXXXXXXX"
-                  className={inputClass}
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium mb-1">स्थिति</label>
-                <select
-                  className={inputClass}
-                  value={formData.status}
-                  onChange={(e) =>
-                    setFormData({ ...formData, status: e.target.value as Member["status"] })
-                  }
-                >
-                  <option value="सक्रिय">सक्रिय</option>
-                  <option value="लंबित">लंबित</option>
-                  <option value="निष्क्रिय">निष्क्रिय</option>
-                </select>
-              </div>
-
-              <div className="flex justify-end gap-2 pt-3 border-t">
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 text-sm rounded-sm border hover:bg-muted"
-                >
-                  रद्द करें
-                </button>
-                <button type="submit" className={btn}>
-                  सदस्य सुरक्षित करें
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      <RegisterMemberModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleAddMember}
+      />
     </>
   );
 }
