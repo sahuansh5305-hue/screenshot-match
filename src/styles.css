@@ -69,6 +69,8 @@
 
 @layer base {
   * { border-color: var(--color-border); }
+  html, body { overflow-x: clip; max-width: 100%; }
+  img, svg, video, canvas { max-width: 100%; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);

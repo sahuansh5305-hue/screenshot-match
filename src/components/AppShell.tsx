@@ -177,24 +177,24 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       {/* TOP HEADER WITH WARM ORANGE GRADIENT FROM LEFT */}
       <header className="sticky top-0 z-40 bg-gradient-to-r from-[#FBD4B5] via-[#FFF3EB] to-card dark:from-orange-950/40 dark:via-background dark:to-card border-b border-border shadow-xs px-4 py-2">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           {/* LOGO & TITLE */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 min-w-0">
             <span
               aria-label="संगठन प्रबंधन - कांग्रेस चुनाव चिन्ह"
-              className="size-13 sm:size-14 rounded-full bg-white shadow-sm border border-orange-200/60 grid place-items-center shrink-0 overflow-hidden"
+              className="size-11 sm:size-14 rounded-full bg-white shadow-sm border border-orange-200/60 grid place-items-center shrink-0 overflow-hidden"
             >
               <img
                 src="/logo.png"
                 alt="संगठन प्रबंधन - कांग्रेस चुनाव चिन्ह"
-                className="size-11 sm:size-12 object-contain"
+                className="size-9 sm:size-12 object-contain"
               />
             </span>
-            <div>
-              <div className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-primary leading-tight">
-                संगठन प्रबंधन - जिला कांग्रेस कमेटी सागर
+            <div className="min-w-0">
+              <div className="font-serif text-base sm:text-xl lg:text-2xl font-bold text-primary leading-tight break-words">
+                संगठन प्रबंधन - जिला कांग्रेस कमेटी
               </div>
-              <div className="text-xs sm:text-sm text-primary/80">मध्यप्रदेश | संगठन प्रबंधन</div>
+              <div className="text-xs sm:text-sm text-primary/80">सागर मध्यप्रदेश | संगठन प्रबंधन</div>
             </div>
           </div>
 
@@ -221,7 +221,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
 
           {/* RIGHT ACTIONS */}
-          <div className="ml-auto flex items-center gap-2 sm:gap-3">
+          <div className="ml-auto flex items-center gap-1 sm:gap-3 shrink-0">
             {/* MOBILE / TABLET SEARCH BUTTON */}
             <button
               type="button"
@@ -244,14 +244,14 @@ export function AppShell({ children }: { children: ReactNode }) {
                 title="वर्तमान कार्यक्षेत्र देखें या बदलें"
               >
                 <MapPin className="size-4 sm:size-4.5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
-                <div className="leading-tight">
+                <div className="leading-tight hidden md:block">
                   <div className="text-[10px] font-medium text-muted-foreground">वर्तमान क्षेत्र</div>
                   <div className="text-xs sm:text-sm font-semibold text-primary max-w-32 sm:max-w-40 truncate">
                     {currentRole.scopeBadge}
                   </div>
                 </div>
                 <ChevronDown
-                  className={`size-3.5 sm:size-4 text-muted-foreground ml-1 transition-transform duration-200 ${
+                  className={`hidden sm:block size-3.5 sm:size-4 text-muted-foreground ml-1 transition-transform duration-200 ${
                     isAreaDropdownOpen ? "rotate-180" : ""
                   }`}
                 />
@@ -260,7 +260,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               {isAreaDropdownOpen && (
                 <>
                   <div className="fixed inset-0 z-40" onClick={() => setIsAreaDropdownOpen(false)} />
-                  <div className="absolute right-0 top-full mt-2 w-[340px] sm:w-[420px] rounded-xl border border-border bg-card shadow-2xl z-50 p-3 animate-in fade-in-50 zoom-in-95">
+                  <div className="absolute right-0 top-full mt-2 w-[min(92vw,420px)] rounded-xl border border-border bg-card shadow-2xl z-50 p-3 animate-in fade-in-50 zoom-in-95">
                     <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-border">
                       <div className="flex items-center gap-2 text-sm font-bold text-foreground">
                         <MapPin className="size-4 text-primary" /> वर्तमान कार्यक्षेत्र (SCOPE SELECTION)
