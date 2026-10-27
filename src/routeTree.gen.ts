@@ -14,6 +14,7 @@ import { Route as BroadcastRouteImport } from './routes/broadcast'
 import { Route as CanvassingRouteImport } from './routes/canvassing'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as GrievancesRouteImport } from './routes/grievances'
+import { Route as HelpRouteImport } from './routes/help'
 import { Route as MembersRouteImport } from './routes/members'
 import { Route as OrganizationRouteImport } from './routes/organization'
 import { Route as OutreachRouteImport } from './routes/outreach'
@@ -44,6 +45,11 @@ const EventsRoute = EventsRouteImport.update({
 const GrievancesRoute = GrievancesRouteImport.update({
   id: '/grievances',
   path: '/grievances',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MembersRoute = MembersRouteImport.update({
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/canvassing': typeof CanvassingRoute
   '/events': typeof EventsRoute
   '/grievances': typeof GrievancesRoute
+  '/help': typeof HelpRoute
   '/members': typeof MembersRoute
   '/organization': typeof OrganizationRoute
   '/outreach': typeof OutreachRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/canvassing': typeof CanvassingRoute
   '/events': typeof EventsRoute
   '/grievances': typeof GrievancesRoute
+  '/help': typeof HelpRoute
   '/members': typeof MembersRoute
   '/organization': typeof OrganizationRoute
   '/outreach': typeof OutreachRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/canvassing': typeof CanvassingRoute
   '/events': typeof EventsRoute
   '/grievances': typeof GrievancesRoute
+  '/help': typeof HelpRoute
   '/members': typeof MembersRoute
   '/organization': typeof OrganizationRoute
   '/outreach': typeof OutreachRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/canvassing'
     | '/events'
     | '/grievances'
+    | '/help'
     | '/members'
     | '/organization'
     | '/outreach'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/canvassing'
     | '/events'
     | '/grievances'
+    | '/help'
     | '/members'
     | '/organization'
     | '/outreach'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/canvassing'
     | '/events'
     | '/grievances'
+    | '/help'
     | '/members'
     | '/organization'
     | '/outreach'
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   CanvassingRoute: typeof CanvassingRoute
   EventsRoute: typeof EventsRoute
   GrievancesRoute: typeof GrievancesRoute
+  HelpRoute: typeof HelpRoute
   MembersRoute: typeof MembersRoute
   OrganizationRoute: typeof OrganizationRoute
   OutreachRoute: typeof OutreachRoute
@@ -208,6 +221,13 @@ declare module '@tanstack/react-router' {
       path: '/grievances'
       fullPath: '/grievances'
       preLoaderRoute: typeof GrievancesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/members': {
@@ -261,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   CanvassingRoute: CanvassingRoute,
   EventsRoute: EventsRoute,
   GrievancesRoute: GrievancesRoute,
+  HelpRoute: HelpRoute,
   MembersRoute: MembersRoute,
   OrganizationRoute: OrganizationRoute,
   OutreachRoute: OutreachRoute,
