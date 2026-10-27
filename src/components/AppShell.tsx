@@ -28,7 +28,6 @@ import {
 import { useRbac } from "@/lib/rbac";
 import { RegisterMemberModal, type RegisterMemberData } from "@/components/RegisterMemberModal";
 import { type Member } from "@/lib/data";
-import logo from "@/assets/congress-logo.png";
 
 interface NavItem {
   to?: string;
@@ -73,7 +72,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-40 tricolor-wash border-b border-border shadow-sm px-4 py-2">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-3 shrink-0">
-            <img src={logo} alt="कांग्रेस चिन्ह" width={56} height={56} className="size-14 rounded-full bg-card shadow" />
+            <span aria-label="संगठन सेतु" className="size-14 rounded-full bg-white shadow border border-border grid place-items-center text-[#1E3A8A]"><Landmark className="size-8" /></span>
             <div>
               <div className="font-serif text-xl lg:text-2xl font-bold text-primary leading-tight">
                 संगठन सेतु - जिला कांग्रेस कमेटी सागर
