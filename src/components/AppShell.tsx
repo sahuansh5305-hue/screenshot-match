@@ -179,22 +179,22 @@ export function AppShell({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-40 bg-gradient-to-r from-[#FBD4B5] via-[#FFF3EB] to-card dark:from-orange-950/40 dark:via-background dark:to-card border-b border-border shadow-xs px-4 py-2">
         <div className="flex items-center gap-4">
           {/* LOGO & TITLE */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 min-w-0">
             <span
               aria-label="संगठन प्रबंधन - कांग्रेस चुनाव चिन्ह"
-              className="size-13 sm:size-14 rounded-full bg-white shadow-sm border border-orange-200/60 grid place-items-center shrink-0 overflow-hidden"
+              className="size-11 sm:size-14 rounded-full bg-white shadow-sm border border-orange-200/60 grid place-items-center shrink-0 overflow-hidden"
             >
               <img
                 src="/logo.png"
                 alt="संगठन प्रबंधन - कांग्रेस चुनाव चिन्ह"
-                className="size-11 sm:size-12 object-contain"
+                className="size-9 sm:size-12 object-contain"
               />
             </span>
-            <div>
-              <div className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-primary leading-tight">
-                संगठन प्रबंधन - जिला कांग्रेस कमेटी सागर
+            <div className="min-w-0">
+              <div className="font-serif text-base sm:text-xl lg:text-2xl font-bold text-primary leading-tight break-words">
+                संगठन प्रबंधन - जिला कांग्रेस कमेटी
               </div>
-              <div className="text-xs sm:text-sm text-primary/80">मध्यप्रदेश | संगठन प्रबंधन</div>
+              <div className="text-xs sm:text-sm text-primary/80">सागर मध्यप्रदेश | संगठन प्रबंधन</div>
             </div>
           </div>
 
