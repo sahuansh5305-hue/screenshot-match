@@ -64,22 +64,12 @@ const nav: NavItem[] = [
   },
   { to: "/grievances", label: "जन समस्याएं", icon: MessageCircleWarning },
   { to: "/outreach", label: "सदस्यता अभियान", icon: CalendarCheck },
-  { to: "/events", label: "आयोजन", icon: CalendarDays },
+  { to: "/events", label: "आयोजन कैलेंडर", icon: CalendarDays },
   {
     to: "/reports",
     label: "रिपोर्ट एवं विश्लेषण",
     icon: BarChart3,
     requiresCapability: (cap) => cap.canExportReports,
-  },
-  {
-    label: "प्रशासन",
-    icon: Landmark,
-    minLevelRequired: 1, // SuperAdmin / DCC President only
-  },
-  {
-    label: "मास्टर डेटा",
-    icon: Database,
-    minLevelRequired: 2, // DCC & Vidhan Sabha presidents only
   },
   { label: "सहायता", icon: HelpCircle },
 ];
