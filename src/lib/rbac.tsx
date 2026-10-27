@@ -1,3 +1,7 @@
+import neerajPhoto from "@/assets/neeraj.jpg";
+import dilipPhoto from "@/assets/dilip.jpg";
+import kamalPhoto from "@/assets/kamal.jpg";
+import bhanuPhoto from "@/assets/bhanu.jpg";
 import bhupendraPhoto from "@/assets/bhupendra-mohasa.png";
 import { createContext, useContext, useState, useEffect, type ReactNode, type Context } from "react";
 
@@ -68,7 +72,7 @@ export const USER_ROLES: UserRole[] = [
   },
   {
     id: "assembly-president",
-    name: "Neeraj Sharma",
+    name: "नीरज शर्मा",
     designation: "विधानसभा अध्यक्ष (037 सुरखी)",
     level: 2,
     levelLabel: "विधानसभा स्तर (Assembly Level)",
@@ -76,7 +80,7 @@ export const USER_ROLES: UserRole[] = [
     scopeBadge: "विधानसभा 037 - सुरखी",
     scopeDescription:
       "विधानसभा स्तर अधिकार: केवल 037-सुरखी क्षेत्र (राहतगढ़ एवं जैसीनगर ब्लॉक, 295 मतदान केंद्र)। अन्य विधानसभाओं का डेटा सीमित/रीड-ओनली। अपने वि.स. क्षेत्र के कार्यकर्ताओं का प्रबंधन व कार्य आवंटन।",
-    avatarUrl: "https://images.unsplash.com/photo-1611619668988-9dd258b42ed3?w=200&auto=format&fit=crop&q=80",
+    avatarUrl: neerajPhoto,
     isSuperAdmin: false,
     votersCount: 224300,
     boothsCount: 295,
@@ -95,7 +99,7 @@ export const USER_ROLES: UserRole[] = [
   },
   {
     id: "block-president",
-    name: "Dilip Singh Rajput",
+    name: "दिलीप सिंह राजपूत",
     designation: "ब्लॉक अध्यक्ष (राहतगढ़)",
     level: 3,
     levelLabel: "ब्लॉक स्तर (Block Level)",
@@ -103,7 +107,7 @@ export const USER_ROLES: UserRole[] = [
     scopeBadge: "राहतगढ़ ब्लॉक",
     scopeDescription:
       "ब्लॉक स्तर अधिकार: केवल राहतगढ़ विकासखंड के अंतर्गत आने वाले 3 मंडलमों (सीहोरा, बरखेड़ी, चंद्रपुर) एवं संबद्ध 42 ग्राम पंचायतों का प्रबंधन। ब्लॉक कार्यकर्ताओं का सत्यापन व स्थानीय अभियान संचालन।",
-    avatarUrl: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=200&auto=format&fit=crop&q=80",
+    avatarUrl: dilipPhoto,
     isSuperAdmin: false,
     votersCount: 94200,
     boothsCount: 118,
@@ -123,7 +127,7 @@ export const USER_ROLES: UserRole[] = [
   },
   {
     id: "mandal-president",
-    name: "Kamal Kishore Dangi",
+    name: "कमल किशोर दांगी",
     designation: "मंडलम अध्यक्ष (सीहोरा)",
     level: 4,
     levelLabel: "मंडलम स्तर (Mandal Level)",
@@ -131,7 +135,7 @@ export const USER_ROLES: UserRole[] = [
     scopeBadge: "सीहोरा मंडलम",
     scopeDescription:
       "मंडलम स्तर अधिकार: सीहोरा मंडलम की 6 ग्राम पंचायतों एवं 18 मतदान केंद्रों (बूथ 101 से 118) तक सीमित प्रबंधन। बूथ कार्यकर्ताओं की नियुक्ति अनुशंसा एवं स्थानीय बैठकें।",
-    avatarUrl: "https://plus.unsplash.com/premium_photo-1682092090968-3b9daa5ecdd0?w=200&auto=format&fit=crop&q=80",
+    avatarUrl: kamalPhoto,
     isSuperAdmin: false,
     votersCount: 15150,
     boothsCount: 18,
@@ -152,7 +156,7 @@ export const USER_ROLES: UserRole[] = [
   },
   {
     id: "booth-coordinator",
-    name: "Bhanu Pratap Singh Dangi",
+    name: "भानु प्रताप सिंह दांगी",
     designation: "बूथ संयोजक / बीएलए-1",
     level: 5,
     levelLabel: "बूथ स्तर (Booth Level)",
@@ -160,7 +164,7 @@ export const USER_ROLES: UserRole[] = [
     scopeBadge: "बूथ 101 - सीहोरा",
     scopeDescription:
       "बूथ स्तर अधिकार: केवल बूथ 101 (शासकीय उ.मा. विद्यालय सीहोरा कक्ष 1) के 842 मतदाताओं एवं स्थानीय कार्यकर्ताओं की सूची दृश्यमान। केवल पठन/सत्यापन अधिकार।",
-    avatarUrl: "https://plus.unsplash.com/premium_photo-1770660306212-ab28df3a7dfa?w=200&auto=format&fit=crop&q=80",
+    avatarUrl: bhanuPhoto,
     isSuperAdmin: false,
     votersCount: 842,
     boothsCount: 1,

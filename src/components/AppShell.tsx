@@ -71,7 +71,7 @@ const nav: NavItem[] = [
     icon: BarChart3,
     requiresCapability: (cap) => cap.canExportReports,
   },
-  { label: "सहायता", icon: HelpCircle },
+  { to: "/help", label: "सहायता", icon: HelpCircle },
 ];
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -194,7 +194,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <div className="font-serif text-base sm:text-xl lg:text-2xl font-bold text-primary leading-tight break-words">
                 संगठन प्रबंधन - जिला कांग्रेस कमेटी
               </div>
-              <div className="text-xs sm:text-sm text-primary/80">सागर मध्यप्रदेश | संगठन प्रबंधन</div>
+              <div className="text-xs sm:text-sm text-primary/80">सागर | मध्यप्रदेश</div>
             </div>
           </div>
 
