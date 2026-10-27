@@ -34,21 +34,46 @@ interface NavItem {
   label: string;
   icon: typeof Home;
   exact?: boolean;
+  minLevelRequired?: number; // 1 = DCC President only, 2 = Assembly+, 3 = Block+, etc.
+  requiresCapability?: (cap: import("@/lib/rbac").UserRole["capabilities"]) => boolean;
 }
 
 const nav: NavItem[] = [
   { to: "/", label: "डैशबोर्ड", icon: Home, exact: true },
   { to: "/members", label: "कार्यकर्ता निर्देशिका", icon: Contact },
   { to: "/organization", label: "संगठनात्मक संरचना", icon: Network },
-  { to: "/broadcast", label: "संदेश एवं अभियान", icon: Megaphone },
+  {
+    to: "/broadcast",
+    label: "संदेश एवं अभियान",
+    icon: Megaphone,
+    requiresCapability: (cap) => cap.canBroadcast !== "अनुमति नहीं",
+  },
   { to: "/tasks", label: "बूथ एवं BLA", icon: Vote },
-  { to: "/war-room", label: "कार्य एवं ट्रैकिंग", icon: ListChecks },
+  {
+    to: "/war-room",
+    label: "कार्य एवं ट्रैकिंग",
+    icon: ListChecks,
+    requiresCapability: (cap) => cap.canAssignTasks || cap.viewScope !== "बूथ 101 (सीहोरा)",
+  },
   { to: "/grievances", label: "जन समस्याएं", icon: MessageCircleWarning },
   { to: "/outreach", label: "सदस्यता अभियान", icon: CalendarCheck },
   { to: "/events", label: "आयोजन", icon: CalendarDays },
-  { to: "/reports", label: "रिपोर्ट एवं विश्लेषण", icon: BarChart3 },
-  { label: "प्रशासन", icon: Landmark },
-  { label: "मास्टर डेटा", icon: Database },
+  {
+    to: "/reports",
+    label: "रिपोर्ट एवं विश्लेषण",
+    icon: BarChart3,
+    requiresCapability: (cap) => cap.canExportReports,
+  },
+  {
+    label: "प्रशासन",
+    icon: Landmark,
+    minLevelRequired: 1, // SuperAdmin / DCC President only
+  },
+  {
+    label: "मास्टर डेटा",
+    icon: Database,
+    minLevelRequired: 2, // DCC & Vidhan Sabha presidents only
+  },
   { label: "सहायता", icon: HelpCircle },
 ];
 
@@ -183,7 +208,13 @@ export function AppShell({ children }: { children: ReactNode }) {
         {/* SIDEBAR */}
         <aside className="bg-sidebar text-sidebar-foreground md:w-56 shrink-0 flex flex-col">
           <nav className="flex md:flex-col overflow-x-auto p-2 gap-1 pt-4">
-            {nav.map((n) => {
+            {nav
+            .filter((n) => {
+              if (n.minLevelRequired && currentRole.level > n.minLevelRequired) return false;
+              if (n.requiresCapability && !n.requiresCapability(currentRole.capabilities)) return false;
+              return true;
+            })
+            .map((n) => {
               const Icon = n.icon;
               const inner = (
                 <>
