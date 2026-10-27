@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { BellRing, Check, ChevronDown, Clock3, Mail, MessageCircle, Send, Smartphone, Sparkles } from "lucide-react";
 import { PageHeader } from "@/components/AppShell";
+import { useRbac } from "@/lib/rbac";
 import { segments, segmentSize } from "@/lib/campaign";
 
 export const Route = createFileRoute("/broadcast")({
@@ -39,6 +40,9 @@ type Channel = (typeof channels)[number]["id"];
 type Campaign = { id: number; title: string; channel: string; target: number; date: string; status: string; body: string };
 
 function BroadcastCenter() {
+  const { currentRole } = useRbac();
+  const canSend = currentRole.capabilities.canBroadcast !== "अनुमति नहीं";
+
   const [channel, setChannel] = useState<Channel>("whatsapp");
   const [area, setArea] = useState(constituencies[0]!);
   const [selectedRoles, setSelectedRoles] = useState<string[]>([roles[0]!, roles[1]!]);
