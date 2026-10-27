@@ -128,10 +128,10 @@ export function AppShell({ children }: { children: ReactNode }) {
       ? members.filter(
           (m) =>
             m.name.toLowerCase().includes(q) ||
-            m.mobile.includes(q) ||
-            m.role.toLowerCase().includes(q) ||
-            m.booth.toLowerCase().includes(q) ||
-            m.block.toLowerCase().includes(q)
+            m.phone.includes(q) ||
+            m.designation.toLowerCase().includes(q) ||
+            (m.boothName ?? "").toLowerCase().includes(q) ||
+            (m.block ?? "").toLowerCase().includes(q)
         ).slice(0, 8)
       : [];
 
@@ -149,7 +149,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           (b) =>
             b.name.toLowerCase().includes(q) ||
             b.block.toLowerCase().includes(q) ||
-            b.id.toLowerCase().includes(q)
+            String(b.id).includes(q)
         ).slice(0, 6)
       : [];
 
@@ -194,7 +194,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <div className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-primary leading-tight">
                 संगठन सेतु - जिला कांग्रेस कमेटी सागर
               </div>
-              <div className="text-xs sm:text-sm text-primary/80">मध्यप्रदेश | संगठन प्रबंधन CRM</div>
+              <div className="text-xs sm:text-sm text-primary/80">मध्यप्रदेश | संगठन प्रबंधन</div>
             </div>
           </div>
 
@@ -675,11 +675,11 @@ export function AppShell({ children }: { children: ReactNode }) {
                                   <div className="font-semibold text-sm text-foreground flex items-center gap-2">
                                     {m.name}
                                     <span className="text-[10px] px-1.5 py-0.2 rounded bg-muted text-muted-foreground font-normal">
-                                      {m.role}
+                                      {m.designation}
                                     </span>
                                   </div>
                                   <div className="text-muted-foreground text-[11px] mt-0.5">
-                                    📞 {m.mobile} · {m.booth} ({m.block})
+                                    📞 {m.phone} · {m.boothName ?? m.unit} ({m.block ?? "—"})
                                   </div>
                                 </div>
                                 <span className="text-[11px] text-primary shrink-0 font-medium">देखें →</span>
@@ -738,7 +738,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                                 <div>
                                   <div className="font-semibold text-sm text-foreground">{b.name}</div>
                                   <div className="text-muted-foreground text-[11px] mt-0.5">
-                                    ब्लॉक: {b.block} · मतदाता: {b.voters} · स्थिति: {b.status}
+                                    ब्लॉक: {b.block} · मतदाता: {b.voters} · समर्थन: {b.support}%
                                   </div>
                                 </div>
                                 <span className="text-[11px] text-primary shrink-0 font-medium">बूथ विवरण →</span>

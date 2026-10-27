@@ -1,3 +1,4 @@
+import bhupendraPhoto from "@/assets/bhupendra-mohasa.png";
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
 
 export interface RoleCapability {
@@ -41,15 +42,15 @@ export interface UserRole {
 export const USER_ROLES: UserRole[] = [
   {
     id: "dcc-president",
-    name: "Dr. Anand Ahirwar",
-    designation: "जिला प्रभारी / DCC President",
+    name: "Bhupendra Mohasa",
+    designation: "सिस्टम एडमिन (System Admin)",
     level: 1,
     levelLabel: "जिला स्तर (District Level)",
     tierName: "जिला कांग्रेस कमेटी (DCC)",
     scopeBadge: "सम्पूर्ण सागर जिला (All 8)",
     scopeDescription:
       "पूर्ण जिला अधिकार: सागर जिले की सभी 8 विधानसभाओं, 18 ब्लॉकों, 130 मंडलमों एवं 2,183 मतदान केंद्रों का पूर्ण नियंत्रण। प्रशासकीय, संपादन, संदेश प्रसारण, एवं सदस्य प्रबंधन के पूर्ण अधिकार।",
-    avatarUrl: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=200&auto=format&fit=crop&q=80",
+    avatarUrl: bhupendraPhoto,
     isSuperAdmin: true,
     votersCount: 1684500,
     boothsCount: 2183,
@@ -198,22 +199,22 @@ export function RbacProvider({ children }: { children: ReactNode }) {
   // Default to Booth Coordinator as shown in the screenshot, or save in localStorage if available
   const [currentRoleId, setCurrentRoleIdState] = useState<string>(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("sagar_cadre_active_role");
+      const saved = localStorage.getItem("sagar_cadre_role_v3");
       if (saved && USER_ROLES.some((r) => r.id === saved)) {
         return saved;
       }
     }
-    return "assembly-president"; // Matches Neeraj Sharma screenshot
+    return "dcc-president"; // System Admin: Bhupendra Mohasa
   });
 
   const setCurrentRoleId = (id: string) => {
     setCurrentRoleIdState(id);
     if (typeof window !== "undefined") {
-      localStorage.setItem("sagar_cadre_active_role", id);
+      localStorage.setItem("sagar_cadre_role_v3", id);
     }
   };
 
-  const currentRole = USER_ROLES.find((r) => r.id === currentRoleId) || USER_ROLES[4];
+  const currentRole = USER_ROLES.find((r) => r.id === currentRoleId) || USER_ROLES[0]!;
 
   const switchToSuperAdmin = () => {
     setCurrentRoleId("dcc-president");

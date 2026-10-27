@@ -48,10 +48,10 @@ export const booths: Booth[] = blocks.flatMap((block, bi) =>
     const support = 28 + (seed % 33);
     const oppose = 18 + ((seed * 7) % 30);
     const neutral = Math.max(5, 100 - support - oppose);
-    const stations = stationLocations[block] || stationLocations["सागर"];
+    const stations = (stationLocations[block] || stationLocations["सागर"])!;
     const station = stations[i % stations.length];
-    const coord = coordinators[(bi + i) % coordinators.length];
-    const keyIssue = issues[(bi * 3 + i) % issues.length];
+    const coord = coordinators[(bi + i) % coordinators.length]!;
+    const keyIssue = issues[(bi * 3 + i) % issues.length]!;
 
     return {
       id: 100 + bi * 12 + i,

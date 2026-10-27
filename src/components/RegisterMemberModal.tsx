@@ -169,7 +169,7 @@ export function RegisterMemberModal({ isOpen, onClose, onSave }: RegisterMemberM
                 नया कार्यकर्ता पंजीकरण <span className="text-xs font-normal text-muted-foreground font-sans">(Register Member)</span>
               </h2>
               <p className="text-xs text-muted-foreground mt-0.5">
-                सागर जिला कांग्रेस कमेटी • संगठनात्मक एवं बीएलए डेटा प्रविष्टि (Cadre CRM)
+                सागर जिला कांग्रेस कमेटी • संगठनात्मक एवं बीएलए डेटा प्रविष्टि
               </p>
             </div>
           </div>
