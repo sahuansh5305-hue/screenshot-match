@@ -29,6 +29,7 @@ import {
 import { useRbac } from "@/lib/rbac";
 import { members } from "@/lib/data";
 import { RegisterMemberModal } from "@/components/RegisterMemberModal";
+import { SagarPollMap } from "@/components/SagarPollMap";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -144,11 +145,11 @@ function SectionTitle({ icon: Icon, title, sub, tone = "success" }: { icon: type
   );
 }
 
-function ViewAll() {
+function ViewAll({ to }: { to: string }) {
   return (
-    <button type="button" className="flex items-center gap-1 rounded-md border border-border px-2.5 py-1 text-xs hover:bg-muted">
+    <Link to={to} className="flex items-center gap-1 rounded-md border border-border px-2.5 py-1 text-xs hover:bg-muted">
       सभी देखें <ChevronRight className="size-3.5" />
-    </button>
+    </Link>
   );
 }
 
@@ -185,7 +186,7 @@ function Dashboard() {
   let acc = 0;
 
   return (
-    <div className="p-5 space-y-4">
+    <div className="p-4 md:p-5 space-y-5 bg-slate-50/70 min-h-screen">
       {/* Title row */}
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
@@ -193,17 +194,20 @@ function Dashboard() {
             <Home className="size-3.5 text-primary" /> डैशबोर्ड
           </div>
           <div className="flex items-center gap-4 flex-wrap mt-1">
-            <h1 className="font-serif text-3xl font-bold text-primary">संगठन समीक्षा डैशबोर्ड</h1>
+            <h1 className="font-serif text-2xl md:text-3xl font-bold text-[#0B1736] tracking-tight">संगठन समीक्षा डैशबोर्ड</h1>
             <span className="flex items-center gap-1.5 rounded-md bg-success/10 px-2 py-1 text-[11px] text-success">
               <span className="size-2 rounded-full bg-success" /> अद्यतन: 28 अगस्त 2025, 12:45 PM
             </span>
           </div>
-          <p className="text-sm text-primary/80 mt-1">
+          <p className="text-sm text-slate-600 mt-1 font-medium">
             जिला कांग्रेस कमेटी सागर - चुनावी तैयारी, संगठन सुदृढ़ीकरण और बूथ स्तरीय प्रबंधन
           </p>
+          <span className="mt-2 inline-flex rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-[10px] font-semibold text-amber-800">
+            डैशबोर्ड के आंकड़े नमूना डेटा हैं
+          </span>
         </div>
         <div className="flex items-center gap-3 flex-wrap">
-          <button type="button" className="flex items-center gap-3 rounded-lg border border-border bg-card px-3 py-1.5 text-left">
+          <button type="button" className="flex items-center gap-3 rounded-xl border border-border bg-white px-3 py-2 text-left shadow-sm hover:bg-slate-50">
             <CalendarDays className="size-5 text-primary" />
             <span className="leading-tight">
               <span className="block text-[11px] text-muted-foreground">अवधि</span>
@@ -215,14 +219,14 @@ function Dashboard() {
             type="button"
             onClick={() => setIsAddOpen(true)}
             disabled={!currentRole.capabilities.canAddMember}
-            className="flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
+            className="flex items-center gap-2 rounded-xl bg-[#1E3A8A] px-4 py-2.5 text-xs font-semibold text-white hover:bg-[#162a63] disabled:opacity-50"
           >
             <Plus className="size-4" /> नया कार्यकर्ता जोड़ें
           </button>
           <button
             type="button"
             onClick={handleDownload}
-            className="flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-3 text-sm font-semibold text-primary hover:bg-muted"
+            className="flex items-center gap-2 rounded-xl border border-border bg-white px-4 py-2.5 text-xs font-semibold text-[#0B1736] hover:bg-slate-50"
           >
             <Download className="size-4" /> रिपोर्ट डाउनलोड
           </button>
@@ -314,59 +318,10 @@ function Dashboard() {
       </div>
 
       {/* Map + health */}
-      <div className="grid gap-4 xl:grid-cols-[1.6fr_1fr]">
-        <Card className="p-4">
-          <SectionTitle icon={MapIcon} title="सागर जिला - विधानसभा मानचित्र" />
-          <p className="text-sm text-muted-foreground ml-7">
-            विधानसभा अनुसार संगठन स्थिति, कार्यकर्ता कवरेज और बूथ प्रबंधन का अवलोकन
-          </p>
-          <div className="mt-3 grid gap-3 md:grid-cols-[1fr_1.4fr]">
-            <ul className="rounded-lg border border-border divide-y divide-border">
-              {constituencies.map((c) => (
-                <li key={c.name}>
-                  <button
-                    type="button"
-                    onClick={() => setSelected(c.name)}
-                    className={`w-full flex items-center gap-3 px-3 py-2 text-sm hover:bg-muted ${
-                      selected === c.name ? "bg-info/10 ring-1 ring-info rounded-md" : ""
-                    }`}
-                  >
-                    <span className={`size-2.5 rounded-full ${dot[c.tone]}`} />
-                    <span className="flex-1 text-left">{c.name}</span>
-                    <span className={`font-semibold ${txt[c.tone]}`}>{c.pct}%</span>
-                    <ChevronRight className="size-4 text-muted-foreground" />
-                  </button>
-                </li>
-              ))}
-            </ul>
-            <div className="relative rounded-lg border border-border bg-muted/30 overflow-hidden min-h-72">
-              <svg viewBox="30 0 390 340" className="w-full h-full">
-                {regions.map((r) => (
-                  <g key={r.label}>
-                    <path d={r.d} className={`${r.fill} stroke-card`} strokeWidth="2" />
-                    <circle cx={r.mx} cy={r.my} r="6" className={`${r.tone === "success" ? "fill-success" : r.tone === "warning" ? "fill-warning" : "fill-destructive"} stroke-card`} strokeWidth="2" />
-                    <rect x={r.lx - 34} y={r.ly - 10} width="68" height="18" rx="9" className="fill-card" />
-                    <text x={r.lx} y={r.ly + 3} textAnchor="middle" className="fill-foreground text-[9px] font-semibold">
-                      {r.label}
-                    </text>
-                  </g>
-                ))}
-              </svg>
-              <div className="absolute right-2 top-2 flex flex-col rounded-md border border-border bg-card shadow">
-                <ZoomIn className="size-8 p-2" />
-                <ZoomOut className="size-8 p-2 border-y border-border" />
-                <LocateFixed className="size-8 p-2" />
-              </div>
-              <div className="absolute left-2 bottom-2 rounded-md border border-border bg-card/95 p-2 text-[11px] space-y-0.5">
-                <div className="font-semibold">स्थिति संकेतक</div>
-                <div className="flex items-center gap-1.5"><span className="size-2 rounded-full bg-success" />100% (पूर्ण)</div>
-                <div className="flex items-center gap-1.5"><span className="size-2 rounded-full bg-warning" />70-99% (प्रगति पर)</div>
-                <div className="flex items-center gap-1.5"><span className="size-2 rounded-full bg-destructive" />&lt; 70% (ध्यान आवश्यक)</div>
-                <div className="flex items-center gap-1.5"><span className="size-2 rounded-full bg-muted-foreground" />डेटा उपलब्ध नहीं</div>
-              </div>
-            </div>
-          </div>
-        </Card>
+      <div className="grid gap-4 xl:grid-cols-[1.55fr_1fr]">
+        <div className="xl:col-span-1">
+          <SagarPollMap />
+        </div>
 
         <Card className="p-4">
           <div className="flex items-center justify-between">
@@ -443,7 +398,7 @@ function Dashboard() {
         <Card className="p-4">
           <div className="flex items-center justify-between">
             <SectionTitle icon={SquareCheck} title="महत्वपूर्ण कार्य" sub="(Critical Tasks)" />
-            <ViewAll />
+            <ViewAll to="/tasks" />
           </div>
           <table className="mt-3 w-full text-xs">
             <thead className="bg-muted/60 text-left">
@@ -470,7 +425,7 @@ function Dashboard() {
         <Card className="p-4">
           <div className="flex items-center justify-between">
             <SectionTitle icon={CalendarDays} title="आगामी आयोजन" sub="(Events)" tone="info" />
-            <ViewAll />
+            <ViewAll to="/events" />
           </div>
           <table className="mt-3 w-full text-xs">
             <thead className="bg-muted/60 text-left">
@@ -495,7 +450,7 @@ function Dashboard() {
         <Card className="p-4">
           <div className="flex items-center justify-between">
             <SectionTitle icon={Clock} title="हाल की गतिविधियाँ" sub="(Field Cadre Log)" tone="info" />
-            <ViewAll />
+            <ViewAll to="/war-room" />
           </div>
           <ul className="mt-3 space-y-2 text-sm">
             {logs.map((l) => (
