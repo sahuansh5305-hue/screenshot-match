@@ -49,7 +49,7 @@ export const USER_ROLES: UserRole[] = [
     scopeBadge: "सम्पूर्ण सागर जिला (All 8)",
     scopeDescription:
       "पूर्ण जिला अधिकार: सागर जिले की सभी 8 विधानसभाओं, 18 ब्लॉकों, 130 मंडलमों एवं 2,183 मतदान केंद्रों का पूर्ण नियंत्रण। प्रशासकीय, संपादन, संदेश प्रसारण, एवं सदस्य प्रबंधन के पूर्ण अधिकार।",
-    avatarUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=200&auto=format&fit=crop&q=80",
     isSuperAdmin: true,
     votersCount: 1684500,
     boothsCount: 2183,
@@ -75,7 +75,7 @@ export const USER_ROLES: UserRole[] = [
     scopeBadge: "विधानसभा 037 - सुरखी",
     scopeDescription:
       "विधानसभा स्तर अधिकार: केवल 037-सुरखी क्षेत्र (राहतगढ़ एवं जैसीनगर ब्लॉक, 295 मतदान केंद्र)। अन्य विधानसभाओं का डेटा सीमित/रीड-ओनली। अपने वि.स. क्षेत्र के कार्यकर्ताओं का प्रबंधन व कार्य आवंटन।",
-    avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1611619668988-9dd258b42ed3?w=200&auto=format&fit=crop&q=80",
     isSuperAdmin: false,
     votersCount: 224300,
     boothsCount: 295,
@@ -102,7 +102,7 @@ export const USER_ROLES: UserRole[] = [
     scopeBadge: "राहतगढ़ ब्लॉक",
     scopeDescription:
       "ब्लॉक स्तर अधिकार: केवल राहतगढ़ विकासखंड के अंतर्गत आने वाले 3 मंडलमों (सीहोरा, बरखेड़ी, चंद्रपुर) एवं संबद्ध 42 ग्राम पंचायतों का प्रबंधन। ब्लॉक कार्यकर्ताओं का सत्यापन व स्थानीय अभियान संचालन।",
-    avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80",
+    avatarUrl: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=200&auto=format&fit=crop&q=80",
     isSuperAdmin: false,
     votersCount: 94200,
     boothsCount: 118,
@@ -130,7 +130,7 @@ export const USER_ROLES: UserRole[] = [
     scopeBadge: "सीहोरा मंडलम",
     scopeDescription:
       "मंडलम स्तर अधिकार: सीहोरा मंडलम की 6 ग्राम पंचायतों एवं 18 मतदान केंद्रों (बूथ 101 से 118) तक सीमित प्रबंधन। बूथ कार्यकर्ताओं की नियुक्ति अनुशंसा एवं स्थानीय बैठकें।",
-    avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80",
+    avatarUrl: "https://plus.unsplash.com/premium_photo-1682092090968-3b9daa5ecdd0?w=200&auto=format&fit=crop&q=80",
     isSuperAdmin: false,
     votersCount: 15150,
     boothsCount: 18,
@@ -159,7 +159,7 @@ export const USER_ROLES: UserRole[] = [
     scopeBadge: "बूथ 101 - सीहोरा",
     scopeDescription:
       "बूथ स्तर अधिकार: केवल बूथ 101 (शासकीय उ.मा. विद्यालय सीहोरा कक्ष 1) के 842 मतदाताओं एवं स्थानीय कार्यकर्ताओं की सूची दृश्यमान। केवल पठन/सत्यापन अधिकार।",
-    avatarUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format&fit=crop&q=80",
+    avatarUrl: "https://plus.unsplash.com/premium_photo-1770660306212-ab28df3a7dfa?w=200&auto=format&fit=crop&q=80",
     isSuperAdmin: false,
     votersCount: 842,
     boothsCount: 1,
