@@ -8,7 +8,7 @@ import { segments, segmentSize } from "@/lib/campaign";
 export const Route = createFileRoute("/broadcast")({
   head: () => ({
     meta: [
-      { title: "संदेश एवं अभियान केंद्र – संगठन सेतु" },
+      { title: "संदेश एवं अभियान केंद्र – संगठन प्रबंधन" },
       { name: "description", content: "संगठनात्मक संदेश तैयार करें, लक्ष्य समूह चुनें और प्रसारण का पूर्वावलोकन देखें।" },
     ],
   }),

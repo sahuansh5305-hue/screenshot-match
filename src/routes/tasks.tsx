@@ -9,9 +9,9 @@ export const Route = createFileRoute("/tasks")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "कार्य – संगठन सेतु" },
+      { title: "कार्य – संगठन प्रबंधन" },
       { name: "description", content: "जिले की इकाइयों के कार्य आवंटन और अनुवर्ती कार्य।" },
-      { property: "og:title", content: "कार्य – संगठन सेतु" },
+      { property: "og:title", content: "कार्य – संगठन प्रबंधन" },
       { property: "og:description", content: "जिले की इकाइयों के कार्य आवंटन और अनुवर्ती कार्य।" },
     ],
   }),

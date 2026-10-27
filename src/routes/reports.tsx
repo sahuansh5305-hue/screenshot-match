@@ -8,9 +8,9 @@ export const Route = createFileRoute("/reports")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "प्रतिवेदन – संगठन सेतु" },
+      { title: "प्रतिवेदन – संगठन प्रबंधन" },
       { name: "description", content: "ब्लॉकवार बूथ कवरेज और सदस्यता प्रतिवेदन।" },
-      { property: "og:title", content: "प्रतिवेदन – संगठन सेतु" },
+      { property: "og:title", content: "प्रतिवेदन – संगठन प्रबंधन" },
       { property: "og:description", content: "ब्लॉकवार बूथ कवरेज और सदस्यता प्रतिवेदन।" },
     ],
   }),

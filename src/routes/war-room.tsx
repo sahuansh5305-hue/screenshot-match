@@ -9,9 +9,9 @@ export const Route = createFileRoute("/war-room")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "वॉर रूम – संगठन सेतु" },
+      { title: "वॉर रूम – संगठन प्रबंधन" },
       { name: "description", content: "बूथवार जनमत, कांटे की टक्कर वाले बूथ और मतदान दिवस की सीधी निगरानी।" },
-      { property: "og:title", content: "वॉर रूम – संगठन सेतु" },
+      { property: "og:title", content: "वॉर रूम – संगठन प्रबंधन" },
       { property: "og:description", content: "बूथवार जनमत, कांटे की टक्कर वाले बूथ और मतदान दिवस की सीधी निगरानी।" },
     ],
   }),

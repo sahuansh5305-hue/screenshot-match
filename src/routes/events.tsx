@@ -27,9 +27,9 @@ export const Route = createFileRoute("/events")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "आयोजन कैलेंडर – संगठन सेतु" },
+      { title: "आयोजन कैलेंडर – संगठन प्रबंधन" },
       { name: "description", content: "सागर जिले के सभी राजनीतिक कार्यक्रम, रैलियां, बैठकें व कैलेंडर।" },
-      { property: "og:title", content: "आयोजन कैलेंडर – संगठन सेतु" },
+      { property: "og:title", content: "आयोजन कैलेंडर – संगठन प्रबंधन" },
       { property: "og:description", content: "सागर जिले के सभी राजनीतिक कार्यक्रम, रैलियां, बैठकें व कैलेंडर।" },
     ],
   }),

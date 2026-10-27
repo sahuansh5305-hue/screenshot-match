@@ -1,5 +1,5 @@
 import bhupendraPhoto from "@/assets/bhupendra-mohasa.png";
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, type ReactNode, type Context } from "react";
 
 export interface RoleCapability {
   id: string;
@@ -42,8 +42,8 @@ export interface UserRole {
 export const USER_ROLES: UserRole[] = [
   {
     id: "dcc-president",
-    name: "Bhupendra Mohasa",
-    designation: "सिस्टम एडमिन (System Admin)",
+    name: "भूपेंद्र सिंह मोहासा",
+    designation: "जिला प्रभारी",
     level: 1,
     levelLabel: "जिला स्तर (District Level)",
     tierName: "जिला कांग्रेस कमेटी (DCC)",
@@ -193,7 +193,9 @@ interface RbacContextType {
   scopedMembersCount: number;
 }
 
-const RbacContext = createContext<RbacContextType | undefined>(undefined);
+// Keep one context instance across hot reloads so provider and consumers always match.
+const g = globalThis as { __rbacContext?: Context<RbacContextType | undefined> };
+const RbacContext = (g.__rbacContext ??= createContext<RbacContextType | undefined>(undefined));
 
 export function RbacProvider({ children }: { children: ReactNode }) {
   // Default to Booth Coordinator as shown in the screenshot, or save in localStorage if available
@@ -204,7 +206,7 @@ export function RbacProvider({ children }: { children: ReactNode }) {
         return saved;
       }
     }
-    return "dcc-president"; // System Admin: Bhupendra Mohasa
+    return "dcc-president"; // जिला प्रभारी: भूपेंद्र सिंह मोहासा
   });
 
   const setCurrentRoleId = (id: string) => {

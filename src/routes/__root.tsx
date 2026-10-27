@@ -80,8 +80,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "संगठन सेतु – डैशबोर्ड एवं संगठनात्मक प्रबंधन" },
-      { name: "description", content: "संगठन सेतु – सागर जिला संगठन प्रबंधन, चुनावी वॉर रूम, बीएलए एवं बूथ स्तर विश्लेषण।" },
+      { title: "संगठन प्रबंधन – डैशबोर्ड एवं संगठनात्मक प्रबंधन" },
+      { name: "description", content: "संगठन प्रबंधन – सागर जिला संगठन प्रबंधन, चुनावी वॉर रूम, बीएलए एवं बूथ स्तर विश्लेषण।" },
 
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

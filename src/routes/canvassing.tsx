@@ -8,9 +8,9 @@ export const Route = createFileRoute("/canvassing")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "जनसंपर्क – संगठन सेतु" },
+      { title: "जनसंपर्क – संगठन प्रबंधन" },
       { name: "description", content: "घर-घर संपर्क दर्ज करें, जनता के मुद्दे और जनमत समझें।" },
-      { property: "og:title", content: "जनसंपर्क – संगठन सेतु" },
+      { property: "og:title", content: "जनसंपर्क – संगठन प्रबंधन" },
       { property: "og:description", content: "घर-घर संपर्क दर्ज करें, जनता के मुद्दे और जनमत समझें।" },
     ],
   }),

@@ -181,18 +181,18 @@ export function AppShell({ children }: { children: ReactNode }) {
           {/* LOGO & TITLE */}
           <div className="flex items-center gap-3 shrink-0">
             <span
-              aria-label="संगठन सेतु - कांग्रेस चुनाव चिन्ह"
+              aria-label="संगठन प्रबंधन - कांग्रेस चुनाव चिन्ह"
               className="size-13 sm:size-14 rounded-full bg-white shadow-sm border border-orange-200/60 grid place-items-center shrink-0 overflow-hidden"
             >
               <img
                 src="/logo.png"
-                alt="संगठन सेतु - कांग्रेस चुनाव चिन्ह"
+                alt="संगठन प्रबंधन - कांग्रेस चुनाव चिन्ह"
                 className="size-11 sm:size-12 object-contain"
               />
             </span>
             <div>
               <div className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-primary leading-tight">
-                संगठन सेतु - जिला कांग्रेस कमेटी सागर
+                संगठन प्रबंधन - जिला कांग्रेस कमेटी सागर
               </div>
               <div className="text-xs sm:text-sm text-primary/80">मध्यप्रदेश | संगठन प्रबंधन</div>
             </div>

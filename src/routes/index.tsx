@@ -34,12 +34,12 @@ import { SagarPollMap } from "@/components/SagarPollMap";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "संगठन समीक्षा डैशबोर्ड – संगठन सेतु सागर" },
+      { title: "संगठन समीक्षा डैशबोर्ड – संगठन प्रबंधन सागर" },
       {
         name: "description",
         content: "जिला कांग्रेस कमेटी सागर - चुनावी तैयारी, संगठन सुदृढ़ीकरण और बूथ स्तरीय प्रबंधन डैशबोर्ड।",
       },
-      { property: "og:title", content: "संगठन समीक्षा डैशबोर्ड – संगठन सेतु सागर" },
+      { property: "og:title", content: "संगठन समीक्षा डैशबोर्ड – संगठन प्रबंधन सागर" },
       {
         property: "og:description",
         content: "जिला कांग्रेस कमेटी सागर - चुनावी तैयारी, संगठन सुदृढ़ीकरण और बूथ स्तरीय प्रबंधन डैशबोर्ड।",

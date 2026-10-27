@@ -11,9 +11,9 @@ export const Route = createFileRoute("/members")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "कार्यकर्ता निर्देशिका – संगठन सेतु" },
+      { title: "कार्यकर्ता निर्देशिका – संगठन प्रबंधन" },
       { name: "description", content: "पार्टी सदस्यों और पदाधिकारियों की खोज योग्य सूची।" },
-      { property: "og:title", content: "कार्यकर्ता निर्देशिका – संगठन सेतु" },
+      { property: "og:title", content: "कार्यकर्ता निर्देशिका – संगठन प्रबंधन" },
       { property: "og:description", content: "पार्टी सदस्यों और पदाधिकारियों की खोज योग्य सूची।" },
     ],
   }),

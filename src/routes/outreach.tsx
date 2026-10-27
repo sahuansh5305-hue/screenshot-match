@@ -8,9 +8,9 @@ export const Route = createFileRoute("/outreach")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "सदस्यता और संदेश – संगठन सेतु" },
+      { title: "सदस्यता और संदेश – संगठन प्रबंधन" },
       { name: "description", content: "सदस्यता अभियान की प्रगति, नया पंजीयन और कार्यकर्ताओं को संदेश प्रसारण।" },
-      { property: "og:title", content: "सदस्यता और संदेश – संगठन सेतु" },
+      { property: "og:title", content: "सदस्यता और संदेश – संगठन प्रबंधन" },
       { property: "og:description", content: "सदस्यता अभियान की प्रगति, नया पंजीयन और कार्यकर्ताओं को संदेश प्रसारण।" },
     ],
   }),

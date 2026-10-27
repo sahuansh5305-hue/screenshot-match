@@ -9,9 +9,9 @@ export const Route = createFileRoute("/grievances")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "जन समस्या – संगठन सेतु" },
+      { title: "जन समस्या – संगठन प्रबंधन" },
       { name: "description", content: "नागरिकों की समस्याएँ दर्ज करें और उनके समाधान तक अनुवर्ती करें।" },
-      { property: "og:title", content: "जन समस्या – संगठन सेतु" },
+      { property: "og:title", content: "जन समस्या – संगठन प्रबंधन" },
       { property: "og:description", content: "नागरिकों की समस्याएँ दर्ज करें और उनके समाधान तक अनुवर्ती करें।" },
     ],
   }),

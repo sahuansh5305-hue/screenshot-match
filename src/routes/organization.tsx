@@ -28,13 +28,13 @@ export const Route = createFileRoute("/organization")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "संगठनात्मक संरचना एवं भूमिका पदानुक्रम – संगठन सेतु" },
+      { title: "संगठनात्मक संरचना एवं भूमिका पदानुक्रम – संगठन प्रबंधन" },
       {
         name: "description",
         content:
           "सागर जिला कांग्रेस कमेटी: 5-स्तरीय उपयोगकर्ता पदानुक्रम (RBAC Hierarchy) एवं भूमिका आधारित अधिकार मैट्रिक्स।",
       },
-      { property: "og:title", content: "संगठनात्मक संरचना एवं भूमिका पदानुक्रम – संगठन सेतु" },
+      { property: "og:title", content: "संगठनात्मक संरचना एवं भूमिका पदानुक्रम – संगठन प्रबंधन" },
       {
         property: "og:description",
         content:
